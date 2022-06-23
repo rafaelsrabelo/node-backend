@@ -6,6 +6,12 @@ app.use(express.json())
 
 const cursos = ['Node', 'React', 'Next']
 
+app.use((request, response, next) => {
+  console.log(`URL CHAMADA ${request.method}`)
+
+  return next();
+})
+
 app.get('/cursos', (request, response) => {
   return response.json(cursos)
 })
